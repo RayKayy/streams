@@ -6,8 +6,14 @@ const options = {
 };
 
 const callBack = (response) => {
-  console.log('Response', response);
+
   console.log('In callBack');
+
+  response.on('data', (chunk) => {
+    console.log(`[--CHUNK OF LENGTH ${chunk.length} --]`);
+    //console.log(chunk);
+    console.log(chunk.toString());
+  })
 }
 
 console.log('before request');
